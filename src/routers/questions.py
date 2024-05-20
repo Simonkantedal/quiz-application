@@ -1,7 +1,8 @@
-from fastapi import APIRouter, HTTPException, Depends
-from models import Question
-from crud import CRUD
-from main import db
+from fastapi import APIRouter, HTTPException
+
+from src.crud import CRUD
+from src.database import db
+from src.models import Question
 
 router = APIRouter()
 crud = CRUD(db)

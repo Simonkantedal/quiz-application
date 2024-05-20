@@ -1,7 +1,15 @@
-from motor.motor_asyncio import AsyncIOMotorClient
 from fastapi import FastAPI
+
+from src.routers import questions, teams
 
 app = FastAPI()
 
-client = AsyncIOMotorClient('mongodb://localhost:27017')
-db = client.quiz_db
+
+# Include routers
+app.include_router(questions.router, prefix="/questions", tags=["Questions"])
+app.include_router(teams.router, prefix="/teams", tags=["Teams"])
+
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the Quiz App!"}

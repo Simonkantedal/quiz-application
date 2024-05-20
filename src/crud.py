@@ -1,6 +1,7 @@
 from motor.motor_asyncio import AsyncIOMotorDatabase
-from models import Question, Team
 from bson import ObjectId
+
+from src.models import Question, Team
 
 
 class CRUD:
